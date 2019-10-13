@@ -1,7 +1,6 @@
 package com.virtualmenu.repository;
 
 import com.virtualmenu.model.Item;
-import com.virtualmenu.model.Product;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
