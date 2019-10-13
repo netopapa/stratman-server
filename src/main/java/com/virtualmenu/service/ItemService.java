@@ -6,6 +6,8 @@ import com.virtualmenu.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ItemService extends GenericService<Item, Long> {
 
@@ -18,6 +20,10 @@ public class ItemService extends GenericService<Item, Long> {
     ) {
         super(repository);
         this.itemRepository = itemRepository;
+    }
+
+    public List<Item> getByCenarioId(Long cenarioId) {
+        return itemRepository.findAllByCenario_Id(cenarioId);
     }
 
 }
