@@ -1,9 +1,24 @@
-insert into product (date_create, date_update, description, name, price, id) values (now() , now(), 'carne crua', 'hamburguer', 50.99, 1);
+INSERT INTO public.cenario
+(id, date_create, date_update, balance, date_reference, name)
+VALUES(1, now(), now(), 20000, now(), 'ano que deu tudo errado');
 
-insert into restaurant_table (date_create, date_update, busy, number, id) values (now() , now(), true, 4, 1);
+INSERT INTO public.cenario
+(id, date_create, date_update, balance, date_reference, name)
+VALUES(2, now(), now(), 10000, now(), 'ano que o pietro entrou');
 
+INSERT INTO public.item
+(id, date_create, date_update, "name", value, cenario_id)
+VALUES(1, now(), now(), 'Funcionarios', 10000, 1);
 
-insert into shopping_cart (date_create, date_update, closed, table_id, id) values (now() , now(), false, 1, 1);
+INSERT INTO public.item
+(id, date_create, date_update, "name", value, cenario_id)
+VALUES(2, now(), now(), 'Linha de desenvolvimento', 10000, 1);
 
+INSERT INTO public.item
+(id, date_create, date_update, "name", value, cenario_id)
+VALUES(3, now(), now(), 'Funcionarios', 10000, 2);
 
-insert into cooking_request (date_create, date_update, is_cooking, product_id, shopping_cart_id, id) values (now() , now(), false, 1, 1, 1);
+INSERT INTO public.item
+(id, date_create, date_update, "name", value, cenario_id)
+VALUES(4, now(), now(), 'Linha de desenvolvimento', 20000, 2);
+

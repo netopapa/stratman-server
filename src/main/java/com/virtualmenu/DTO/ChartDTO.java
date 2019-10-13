@@ -11,6 +11,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ChartDTO {
+    private String name;
+    private Long dateReference;
     private List<String> labels;
     private List<BigDecimal> series;
 }
