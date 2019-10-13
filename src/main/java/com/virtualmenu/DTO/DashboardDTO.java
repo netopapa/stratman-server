@@ -2,7 +2,6 @@ package com.virtualmenu.DTO;
 
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 @Getter

@@ -6,12 +6,13 @@ import com.virtualmenu.model.Cenario;
 import com.virtualmenu.model.Item;
 import com.virtualmenu.repository.BaseRepository;
 import com.virtualmenu.repository.CenarioRepository;
-import com.virtualmenu.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -62,6 +63,11 @@ public class CenarioService extends GenericService<Cenario, Long> {
         dto.setHistoric(charts.subList(1, charts.size()));
 
         return dto;
+    }
+
+    public Cenario getByPeriod(LocalDate dateReference) {
+        Optional<Cenario> cenario = cenarioRepository.findByDateReferenceBetween(dateReference.withMonth(1).withDayOfMonth(1), dateReference.withMonth(12).withDayOfMonth(dateReference.lengthOfMonth()));
+        return cenario.isPresent() ? cenario.get() : null;
     }
 
 }
