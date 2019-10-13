@@ -22,3 +22,28 @@ INSERT INTO public.item
 (id, date_create, date_update, "name", value, cenario_id)
 VALUES(4, now(), now(), 'Linha de desenvolvimento', 20000, 2);
 
+INSERT INTO public.item
+(id, date_create, date_update, name, value, cenario_id)
+VALUES(5, now(), now(), 'Infraestrutura', 10000, 1);
+
+INSERT INTO public.item
+(id, date_create, date_update, name, value, cenario_id)
+VALUES(6, now(), now(), 'Testes', 10000, 1);
+
+INSERT INTO public.item
+(id, date_create, date_update, name, value, cenario_id)
+VALUES(7, now(), now(), 'Qualidade', 10000, 1);
+
+INSERT INTO public.item
+(id, date_create, date_update, name, value, cenario_id)
+VALUES(8, now(), now(), 'Infraestrutura', 20000, 2);
+
+INSERT INTO public.item
+(id, date_create, date_update, name, value, cenario_id)
+VALUES(9, now(), now(), 'Testes', 10000, 2);
+
+INSERT INTO public.item
+(id, date_create, date_update, name, value, cenario_id)
+VALUES(10, now(), now(), 'Qualidade', 10000, 2);
+
+

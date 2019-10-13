@@ -1,5 +1,6 @@
 package com.virtualmenu.service;
 
+import com.virtualmenu.model.Cenario;
 import com.virtualmenu.model.Item;
 import com.virtualmenu.repository.BaseRepository;
 import com.virtualmenu.repository.ItemRepository;
@@ -24,6 +25,10 @@ public class ItemService extends GenericService<Item, Long> {
 
     public List<Item> getByCenarioId(Long cenarioId) {
         return itemRepository.findAllByCenario_Id(cenarioId);
+    }
+
+    public List<Item> findFourLast(Cenario cenario) {
+        return itemRepository.findFirst4ByCenario_IdOrderByValueDesc(cenario.getId());
     }
 
 }

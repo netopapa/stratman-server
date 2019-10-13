@@ -2,6 +2,7 @@ package com.virtualmenu.service;
 
 import com.virtualmenu.DTO.ChartDTO;
 import com.virtualmenu.DTO.DashboardDTO;
+import com.virtualmenu.mapper.ItemMapper;
 import com.virtualmenu.model.Cenario;
 import com.virtualmenu.model.Item;
 import com.virtualmenu.repository.BaseRepository;
@@ -17,6 +18,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class CenarioService extends GenericService<Cenario, Long> {
+
+    private static final ItemMapper itemMapper = new ItemMapper();
 
     private CenarioRepository cenarioRepository;
 
@@ -53,6 +56,10 @@ public class CenarioService extends GenericService<Cenario, Long> {
     public DashboardDTO getDashContent() {
         List<Cenario> cenarios = cenarioRepository.findAll();
 
+        Cenario currentCenario = this.getByPeriod(LocalDate.now());
+
+        List<Item> items = itemService.findFourLast(currentCenario);
+
         if (cenarios.size() < 1) {
             return null;
         }
@@ -61,6 +68,7 @@ public class CenarioService extends GenericService<Cenario, Long> {
         List<ChartDTO> charts = cenarios.stream().map(cenario -> this.getChartByCenario(cenario)).collect(Collectors.toList());
         dto.setCurrentCenario(this.getChartByCenario(cenarios.get(0)));
         dto.setHistoric(charts.subList(1, charts.size()));
+        dto.setCurrentItens(items.stream().map(item -> this.itemMapper.convertToDTO(item)).collect(Collectors.toList()));
 
         return dto;
     }
